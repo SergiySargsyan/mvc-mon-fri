@@ -11,6 +11,9 @@ class BookController extends Controller
 {
     const BOOKS_PER_PAGE = 9;
     
+    /**
+     * @Route({"uri": "/books", "method": "GET"})
+     */
     public function indexAction(Request $request)
     {
         $currentPage = $request->get('page', 1);
@@ -35,6 +38,10 @@ class BookController extends Controller
         return $this->render('index.phtml', $data);    
     }
     
+    
+    /**
+     * @Route({"uri": "/book-{id}", "method": "GET", "params" : {"id" : "[0-9]"}})
+     */
     public function showAction()
     {
         

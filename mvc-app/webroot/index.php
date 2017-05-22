@@ -49,6 +49,18 @@ try {
     $controller = 'Controller\\' . $route->controller . 'Controller';
     $action = $route->action . 'Action';
     
+    
+    // $reflectionClass = new ReflectionClass($controller);
+    // $reflectionMethod = $reflectionClass->getMethod('showAction');
+    // $docComment = $reflectionMethod->getDocComment();
+    // $regex = "/Route\((.*)\)/";
+    // preg_match($regex, $docComment, $matches);
+    
+    // dump(json_decode($matches[1]));
+    
+   
+    // die;
+    
     $controller = (new $controller())->setContainer($container); // Controller\DefaultController
     
     if (!method_exists($controller, $action)) {

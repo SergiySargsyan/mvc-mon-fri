@@ -16,5 +16,7 @@ return  array(
     'admin_default' => new Route('/admin', 'Admin\\Default', 'index'),
     'admin_books_list' => new Route('/admin/books', 'Admin\\Book', 'index'),
     
-    
+    'api_get_book' => new Route('/api/book/{id}', 'API', 'getBook', array('id' => '[0-9]+')),
+    'api_delete_book' => new Route('/api/book/{id}', 'API', 'deleteBook', array('id' => '[0-9]+')),
+    'api_add_book' => new Route('/api/book/{id}', 'API', 'addBook', array('id' => '[0-9]+')),
 );

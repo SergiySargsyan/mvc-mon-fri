@@ -11,11 +11,17 @@ use Library\Session;
 
 class DefaultController extends Controller
 {
+    /**
+     * @Route({"uri": "/index", "method": "GET"})
+     */
     public function indexAction()
     {
         return $this->render('index.phtml');
     }
     
+    /**
+     * @Route({"uri": "/feedback", "method": "GET"})
+     */
     public function feedbackAction(Request $request)
     {
         $form = new FeedbackForm($request);
