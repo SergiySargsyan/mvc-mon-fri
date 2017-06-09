@@ -1,1 +1,13 @@
 <h1>Welcome</h1>
+
+<script>
+    alert(1);
+    
+    $.get('/api/book/405', function(response) {
+        var book = response.data;
+        alert('Price is ' + book.price);
+    });
+    
+   
+    
+</script>
