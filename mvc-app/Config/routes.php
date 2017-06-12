@@ -18,6 +18,7 @@ return  array(
     'admin_default' => new Route('/admin', 'Admin\\Default', 'index'),
     'admin_books_list' => new Route('/admin/books', 'Admin\\Book', 'index'),
     
+    'api_save_feedback' => new Route('/api/feedback', 'API\\Feedback', 'save'),
     'api_books_list' => new Route('/api/books', 'API\\Book', 'index'),
     'api_book_item' => new Route('/api/book/{id}', 'API\\Book', 'show', array('id' => '[0-9]+')),
 );
