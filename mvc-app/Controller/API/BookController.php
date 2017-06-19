@@ -13,9 +13,14 @@ class BookController extends Controller
 {
     public function indexAction(Request $request)
     {
+        $offset = $request->get('offset'); // $_GET['offset']
+        $count = $request->get('count');
         $code = 200;
         try {
-            $data = $this->get('repository')->getRepository('Book')->findAllHydrateArray();
+            $data = $this
+                ->get('repository')
+                ->getRepository('Book')
+                ->findAllHydrateArray($offset, $count);
             
             if (!$data) {
                 $code = 404;

@@ -81,9 +81,22 @@ class BookRepository
         return $collection;
     }
     
-    public function findAllHydrateArray()
+    public function findAllHydrateArray($offset = null, $count = null)
     {
-        $sth = $this->pdo->query("SELECT * FROM book");
+        if (is_null($count) && !is_null($offset)) {
+            throw new \Exception('Invalid arguments');
+        }
+        
+        $offset = (int) $offset;
+        
+        $sql = 'SELECT * FROM book';
+        
+        if (!is_null($count)) {
+            $count = (int) $count;
+            $sql .= " LIMIT {$offset}, {$count}";
+        }
+        
+        $sth = $this->pdo->query($sql);
         return $sth->fetchAll(\PDO::FETCH_ASSOC);
     }
     
